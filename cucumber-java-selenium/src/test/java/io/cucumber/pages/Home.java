@@ -3,7 +3,10 @@ package io.cucumber.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,19 +14,23 @@ public class Home extends Page {
 
   public Home(ChromeDriver driver) {
     super(driver);
-    System.out.println("Homepage title is : " + getTitle().getText());
+    System.out.println("Homepage title is : " + driver.getTitle());
   }
 
-  @FindBy(css = "h1")
-  private WebElement title;
+
   @FindBy (css = "div#content > ul > li")
   private List<WebElement> featureListItems;
+  @FindBy (css = "#content h3")
+  private WebElement pageSubHeader;
 
-  public WebElement getTitle() {
-    return title;
+  public String getTitle() {
+    return driver.getTitle();
   }
 
-
+  public String getSubPageHeader (){
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    return wait.until(ExpectedConditions.visibilityOf(pageSubHeader)).getText();
+  }
 
   public List<String> getLinks(){
     List<String> actualLinks = new ArrayList<>();
@@ -32,6 +39,11 @@ public class Home extends Page {
         actualLinks.add(element.getText().trim());
     }
     return actualLinks;
+  }
+
+  public void signInBasicAuth(String username, String password, String baseUrl){
+    String authenticatedUrl = baseUrl.replace("https://","https://" + username + ":" + password + "@");
+    driver.get(authenticatedUrl);
   }
 
   public void refresh() {
