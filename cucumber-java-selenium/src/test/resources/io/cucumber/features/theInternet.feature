@@ -59,7 +59,7 @@ Feature: The Internet
 
   @TEST_TI_0002
   Scenario: Basic Auth allows validated access using string
-    Given User navigate to Basic Auth using "admin" and "admin"
+    Given User navigate to Basic Auth using "https://the-internet.herokuapp.com/basic_auth" with "admin" and "admin" credentials
     Then Should verify the links "Basic Auth" in the "The Internet" page
 
   @TEST_TI_0003

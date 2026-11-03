@@ -15,7 +15,6 @@ import java.util.Map;
 public class HomeSteps extends Context {
 
   private Home homePage = new Home(manager.getDriver());
-  private String baseUrl = "https://the-internet.herokuapp.com";
 
   public HomeSteps(Manager manager) {
     super(manager);
@@ -26,9 +25,9 @@ public class HomeSteps extends Context {
     System.out.println("printing shared stash :" + getTestStash().toString());
   }
 
-  @Given("User navigate to Basic Auth using {string} and {string}")
-  public void navigateToSignIn(String username, String password){
-      homePage.signInBasicAuth(username, password, baseUrl + "/basic_auth");
+  @Given("User navigate to Basic Auth using {string} with {string} and {string} credentials")
+  public void navigateToSignIn(String baseUrl, String username, String password){
+      homePage.signInBasicAuth(username, password, baseUrl);
   }
 
   @When("User click link {string}")
