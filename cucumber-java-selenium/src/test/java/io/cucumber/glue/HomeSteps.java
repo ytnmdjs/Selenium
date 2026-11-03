@@ -5,10 +5,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.core.Context;
 import io.cucumber.core.Manager;
+import io.cucumber.java.en.When;
 import io.cucumber.pages.Home;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
+import java.util.Map;
 
 public class HomeSteps extends Context {
 
@@ -29,6 +31,12 @@ public class HomeSteps extends Context {
       homePage.signInBasicAuth(username, password, baseUrl + "/basic_auth");
   }
 
+  @When("User click link {string}")
+  public void clickLinks(String link){
+      homePage.clickLink(link);
+  }
+
+
   @Then("Then Should verify the links in the page")
   public void verifyLinkListed(DataTable dataTable){
     List<String> expectedLinks = dataTable.asList(String.class);
@@ -41,10 +49,17 @@ public class HomeSteps extends Context {
 @Then("Should verify the links {string} in the {string} page")
   public void verifyDataLink(String nameExpectedHeader, String linkExpectedTitle){
     String subActualHeader = homePage.getSubPageHeader();
-//    String linkActualTitle = home
 
     Assertions.assertEquals(linkExpectedTitle, homePage.getTitle());
     Assertions.assertEquals(nameExpectedHeader, subActualHeader);
+}
+
+@Then("Should verify the no class table")
+  public void verifyTable(DataTable dataTable){
+    List<Map<String, String>> expectedRows = dataTable.asMaps(String.class, String.class);
+    List<Map<String, String>> actualRows = homePage.getTableDataAsMaps();
+
+    Assertions.assertEquals(expectedRows, actualRows);
 }
 
 }

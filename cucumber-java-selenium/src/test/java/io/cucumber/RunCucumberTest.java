@@ -10,6 +10,7 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @IncludeEngines("cucumber")
+//@IncludeTags("TEST_TI_0001")
 @SelectPackages("io.cucumber.features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "io.cucumber")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report/cucumber.html")
