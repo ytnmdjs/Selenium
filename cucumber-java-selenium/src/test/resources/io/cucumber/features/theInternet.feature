@@ -6,13 +6,21 @@ Feature: The Internet
     Given the page under test is 'https://the-internet.herokuapp.com'
     Then Then Should verify the links in the page
       | A/B Testing                                                    |
+      | Accessibility Issues                                           |
       | Add/Remove Elements                                            |
+      | Advanced Iframes                                               |
+      | Advanced Shadow DOM                                            |
+      | Autocomplete                                                   |
       | Basic Auth (user and pass: admin)                              |
       | Broken Images                                                  |
+      | Browser Permissions                                            |
       | Canvas                                                         |
       | Challenging DOM                                                |
       | Checkboxes                                                     |
       | Context Menu                                                   |
+      | Cookie Consent                                                 |
+      | Custom Dropdown                                                |
+      | Date & Time Pickers                                            |
       | Digest Authentication (user and pass: admin)                   |
       | Disappearing Elements                                          |
       | Drag and Drop                                                  |
@@ -27,6 +35,7 @@ Feature: The Internet
       | Floating Menu                                                  |
       | Forgot Password                                                |
       | Form Authentication                                            |
+      | Form Validation                                                |
       | Frames                                                         |
       | Geolocation                                                    |
       | Horizontal Slider                                              |
@@ -39,23 +48,38 @@ Feature: The Internet
       | Key Presses                                                    |
       | Large & Deep DOM                                               |
       | Large Form                                                     |
+      | Live Updates                                                   |
+      | Locale & Time Zone                                             |
+      | Modern File Download                                           |
       | Multiple Select Dropdown                                       |
       | Multiple Windows                                               |
+      | Native Dialog                                                  |
       | Nested Frames                                                  |
+      | Network & Console                                              |
       | Notification Messages                                          |
+      | Pointer Events                                                 |
       | Radio Buttons                                                  |
       | Read-only Inputs                                               |
       | Redirect Link                                                  |
+      | Responsive Layout                                              |
+      | SPA Routing                                                    |
+      | SVG                                                            |
       | Secure File Download                                           |
       | Shadow DOM                                                     |
       | Shifting Content                                               |
+      | Slow & Failing API                                             |
       | Slow Resources                                                 |
       | Sortable Data Tables                                           |
+      | Stale Element                                                  |
       | Status Codes                                                   |
       | Subdirectories                                                 |
+      | Toasts                                                         |
       | Two-Factor Login (user: tomsmith / pass: SuperSecretPassword!) |
       | Typos                                                          |
+      | Virtualized List                                               |
+      | Visual Differences                                             |
       | WYSIWYG Editor                                                 |
+      | WebSocket                                                      |
 
   @TEST_TI_0002
   Scenario: Basic Auth allows validated access using string
